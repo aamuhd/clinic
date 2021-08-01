@@ -1,0 +1,36 @@
+{% extends 'core/base.html' %}
+{% load static %}
+{% block content %}
+{% block extra_head %} 
+   <style>
+       body {
+        background-image: url("{% static 'images/drug2.webp' %}");
+        height: 100%;
+       }
+   </style> 
+{% endblock extra_head %}
+    <div class="container" style="margin-top: 10%;">
+
+             {{ category }}
+           
+              <div class="row" style="width: 50%; margin-left: 25%; margin-right: 25%;">
+                  <div class="col-md">
+                      <div class="card card-body"> 
+                          <h4 class="card-title">
+                              Medicines Stock
+                          </h4>
+                        
+                          <td>
+                            <a href="{% url 'stock:add_medicine' categories.id %}" class="btn btn-sm btn-info">
+                                Add Medicine
+                            </a>
+                          </td>
+                      </div>
+                     
+                  </div>
+                   
+              </div>
+                    
+    </div>
+
+{% endblock content %}

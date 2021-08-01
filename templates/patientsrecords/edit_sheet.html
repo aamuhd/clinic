@@ -1,0 +1,27 @@
+{% extends 'core/base.html' %}
+{% load crispy_forms_tags %}
+
+{% block content %}
+
+<div style="margin-top: 100px;" >
+    <div class="container"> 
+      
+        <div style="width: 80%; margin-left: 10%; margin-right: 10%; background-color: white; padding: 1%;">
+            <p class="h1 text-center">ClientSheet Form</p>
+            <form action="{% url 'patientsrecords:edit_sheet' sheet.id %}" method="post">
+                {% csrf_token %}
+                {{ form.as_p }}
+                
+                
+                <input type="submit" value="Add Sheet">
+                
+               
+                </form>
+                
+        </div>
+    </div>
+</div>
+
+    
+    
+{% endblock content %}

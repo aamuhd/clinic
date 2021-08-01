@@ -1,0 +1,55 @@
+{% extends "core/base.html" %}
+{% load static %}
+
+{% block title %}  Appointment {%endblock%}
+{% block extra_head %}
+<meta property="og:title" content="Contact Us">
+<meta property="og:description" content="{{ page.sub_title }} - {{ page.title }}">
+<meta property="og:image" content="{% if page.img %} {{ page.img.url }} {% else %} {% static 'favicon/apple-touch-icon.png' %} {% endif %}">
+<meta name="twitter:card" content="summary_large_image">
+{% endblock extra_head %}
+<style>
+
+</style>
+{% block content %}
+<!--Main layout-->
+  <main class="mt-5 pt-5">
+    <div class="container bg">
+
+
+     <div style="width: 60%; margin-left: 20%; margin-right: 20%; background-color: white; padding: 1%;">
+      <form class="row g-3" method="POST" action="{% url 'core:appointment' %}">
+        {% csrf_token %}
+        <div class="col-md-6">
+          <label for="inputEmail4" class="form-label">Email</label>
+          <input type="email" class="form-control" id="inputEmail4" name="email">
+        </div>
+        <div class="col-md-6">
+          <label for="area1" class="form-label">Subject</label>
+          <input type="text" class="form-control" id="inputAddress2" placeholder="" name="subject">
+        </div>
+        <div class="col-md-12">
+          <label for="area2" class="form-label">message</label>
+          <textarea name="message" class="textarea form-control" id="area2" placeholder=""></textarea>
+        </div>
+        <div class="col-12">
+          <button type="submit" class="btn btn-primary">Sign in</button>
+        </div>
+      </form>
+     </div>
+
+        
+     
+    </div>
+  </main>
+  <!--Main layout-->
+
+
+  {% endblock content %}
+
+  {% block extra_body %}
+  
+  {% endblock extra_body %}
+  {% block extrajs %}
+
+  {% endblock extrajs %}

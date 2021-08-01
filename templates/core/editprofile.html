@@ -1,0 +1,25 @@
+{% extends 'core/base.html' %}
+{% load static %}
+{% block title %}Register{% endblock title %}
+{% block extra_head %}  
+{% endblock extra_head %}
+{% block content %}
+                 
+
+
+                   <img src="{{profile.image.url }}" style="height: 400px; width: 100%;" alt="aliyu">
+                    <form action="{% url 'core:edit_profile' profile.slug %}" method="POST" class="form">
+                      {% csrf_token %}
+                      {{ form.as_p }}
+                      <div class="card-footer">
+                        <input type="submit" class="btn btn-fill btn-primary" value='Save'>
+                      </div>
+                    </form>
+             
+        
+{% endblock content %}
+{% block extra_body %}
+{% endblock extra_body %}
+
+{% block extra_scripts %}
+{% endblock extra_scripts %}

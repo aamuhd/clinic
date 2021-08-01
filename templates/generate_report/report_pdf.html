@@ -1,0 +1,33 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
+</head>
+<body>
+    <div>
+        <div class="card card-body">
+            
+                    <table class="table table-sm">
+                      <tr>
+                          <th></th>
+                          <th></th>
+                          <th></th>
+                      </tr>
+                      {% for liv in liver %}
+                      <tr>
+                          <td>{{ liv.test }}</td>
+                          <td>{{ liv.ALT }}</td>
+                          <td>{{ liv.AST }}</td>
+                      </tr>
+                      {% endfor %}
+                    </table>
+             
+        </div>
+        
+    </div>
+</body>
+</html>

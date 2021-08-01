@@ -1,0 +1,47 @@
+{% extends 'core/base.html' %}
+{% load static %}
+{% block content %}    
+    <div class="container" style="margin-top: 10%;">
+    <h2>{{ patientfile }}</h2>
+       <div class="row" style="margin-left: 10%; margin-right: 10%">
+           <div class="col-md">
+               <div class="card">
+                   <div class="card-body">
+                       <h5 class="card-ttle">{{ patientfile }} Clint Sheet </h5>
+                       <table class="table">
+                           <tr>
+                               <th>Description</th>
+                               <th>Registration Date</th>
+                               <th>Updated Date</th>
+                               <th></th>
+                           </tr>
+                           {% for sheet in sheets %}
+                           <tr>
+                               <td>{{ sheet.text }}</td>
+                               <td>{{ sheet.reg_date }}</td>
+                               <td>{{ sheet.updated }}</td>
+                               <td>
+                                <a href="{% url 'patientsrecords:edit_sheet' sheet.id %}">
+                                    edit
+                                </a>
+                               </td>
+                           </tr>
+                           {% endfor %}
+                       </table>
+                       <a href="{% url 'patientsrecords:add_sheet' patientfile.id %}" class="btn btn-sm btn-primary">
+                        Add Sheet
+                    </a>
+                   
+                    <a href="{% url 'patientsrecords:patientinfos' %}" class="btn btn-sm btn-primary">
+                        Back
+                    </a>
+                   </div>
+               </div>
+           </div>
+       </div>
+
+    
+       
+</div>
+
+{% endblock content %}

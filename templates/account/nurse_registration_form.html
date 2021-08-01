@@ -1,0 +1,29 @@
+{% extends 'core/base.html' %}
+{% load static %}
+{% block title %}Register{% endblock title %}
+{% block extra_head %}  
+{% endblock extra_head %}
+{% block content %}
+     
+           
+
+           <br><br><br>
+
+           <div class="text-center">
+             <P class="h1">Doctor REGISTRATION FORM</P>
+           </div>
+        
+        
+            <form method="post" action="" style="padding-left: 300px; padding-right: 300px; padding-top:30px;">
+                {% csrf_token %}
+                {{form.as_p}}
+                <input type="submit" value="Submit">
+              </form>
+{% endblock content %}
+
+{% block extra_body %}
+{% endblock extra_body %}
+
+{% block extra_scripts %}
+{% endblock extra_scripts %}
+

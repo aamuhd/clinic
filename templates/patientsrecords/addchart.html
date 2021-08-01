@@ -1,0 +1,28 @@
+{% extends 'core/base.html' %}
+{% load crispy_forms_tags %}
+
+{% block content %}
+
+<div style="margin-top: 100px;" >
+    <div class="container"> 
+      <div style="width: 80%; margin-left: 10%; margin-right: 10%; background-color: white; padding: 1%;">
+        <form action="{% url 'patientsrecords:addchart' patientfile.id %}" method="post">
+
+          {% csrf_token %}
+          {{ form.as_p }}
+
+          <input type="submit" value="Add Chart">
+
+        </form>
+       
+      </div>
+       
+            
+
+           
+    </div>
+</div>
+
+    
+    
+{% endblock content %}

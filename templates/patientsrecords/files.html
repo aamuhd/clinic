@@ -1,0 +1,120 @@
+{% extends "core/base.html" %}
+{% load static %}
+{% block title %}Homepage{% endblock title %}
+{% block extra_head %}
+
+<style type="text/css">
+    @media only screen and (max-width: 800px){
+
+        h1 {
+        
+            color: white;
+            margin-top: 10%;
+            
+        }
+    }
+    @media only screen and (max-width: 800px) {
+        #myth {
+            width: 50%;
+        }
+        
+        th {
+            width: 50%;
+        }
+
+        #new-table {
+            max-width: 100%;
+            background-color: blue;
+            color: white;
+        }
+    }
+</style>
+
+{% endblock extra_head %}
+{% block content %}
+<div class="container" style="margin-top: 5%;">
+    <h1 style="text-align: center;">PatientFiles</h1>
+
+    <div class="row" id="new-table">
+        <div class="col-md-12" id="new-table">
+            <div class="card card-body" id="new-table">
+                <table class="table table-sm" id="new-table">
+                    <tr>
+                        <th id="myth">Patient Name</th>
+                        <th id="myth">Add Sheet</th>
+                        <th>Edit Sheet</th>
+                        <th>View Sheet</th>
+                        <th>Add Chart</th>
+                        <th>Edit Chart</th>
+                        <th>View Chart</th>
+                        
+                    </tr>
+                    {% for file in patientfiles %}
+                    <tr>
+                        <td id="table-header">
+
+                                {{ file.firstname }} {{ file.surname }} {{ file.lastname }}
+    
+                        </td>
+                        <td id="table-header">
+                            <a href="{% url 'patientsrecords:add_sheet' file.id %}" class="btn btn-sm btn-primary">
+                                Add Sheet
+                            </a>    
+                        </td>
+
+                        <td>
+                            <a href="{% url 'patientsrecords:edit_sheet' file.id %}" class="btn btn-sm btn-primary">
+                                Edit Sheet
+                            </a>
+                        </td>
+
+                        <td>
+                            <a href="{% url 'patientsrecords:patient_sheet' file.id %}" class="btn btn-sm btn-primary">
+                                View Sheet
+                            </a>     
+                        </td>
+
+                        <td>
+                            <a href="{% url 'patientsrecords:addchart' file.id %}" class="btn btn-sm btn-primary">
+                                Add Chart
+                            </a>    
+                        </td>
+
+                        <td>
+                            <a href="{% url 'patientsrecords:edit_chart' file.id %}" class="btn btn-sm btn-primary">
+                                Edit chart
+                            </a>    
+                        </td>
+
+                       <td>
+                        <a href="{% url 'patientsrecords:patient_chart' file.id %}" class="btn btn-sm btn-primary">
+                            View Chart
+                        </a> 
+                       </td>
+
+
+
+
+                    </tr>
+                    {% endfor %}
+                </table>
+            </div>
+        </div>
+    </div>
+
+    
+    
+    
+    
+</div>
+    
+
+{% endblock content %}
+
+{% block extra_body %}
+
+{% endblock extra_body %}
+
+{% block extra_scripts %}
+{% endblock extra_scripts %}
+    

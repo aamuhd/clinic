@@ -1,0 +1,66 @@
+{% extends 'core/base.html' %}
+{% load static %}
+{% block extra_head %} 
+   <style>
+       body {
+        background-image: url("{% static 'images/drug1.jpg' %}");
+        height: 100%;
+       }
+   </style> 
+{% endblock extra_head %}
+{% block content %}
+
+    <div class="container" style="margin-top: 10%;">
+           
+        <div class="row" style="width: 60%; margin-left: 20%; margin-right: 20%;">
+            <div class="col-md">
+
+                <div class="card card-body">
+                    <h4 class="card-title">
+                      {{ category }}
+                    </h4>
+                    
+                  <table class="table table-sm">
+                      <tr>
+                          <th>Name</th>
+                          <th>Quantity</th>
+                          <th></th>
+                      </tr>
+
+                      {% for medicine in medicines %}
+                      <tr>
+                        
+                        <td>
+                          {{ medicine.name }}
+                        </td>
+                        <td>
+                          {{ medicine.quantity }}
+                        </td>
+                        <td>
+                          <a href="{% url 'stock:medicine_given' medicine.id %}">
+                            quantity out
+                          </a>
+                        </td>
+                        
+                      </tr>
+                    
+                      {% endfor %}
+                     
+                  </table>
+                 
+                  <div style="width: auto;" class="text-right">
+                    <a href="{% url 'stock:categories' %}" class="btn btn-sm btn-info">
+                      back
+                    </a>
+                  </div>
+                
+                  
+                </div>
+               
+            </div>
+             
+        </div>
+              
+</div>
+{% endblock content %}
+

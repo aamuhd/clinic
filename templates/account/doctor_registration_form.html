@@ -1,0 +1,38 @@
+{% extends 'core/base.html' %}
+{% load static %}
+{% block title %}Register{% endblock title %}
+{% block extra_head %}  
+{% endblock extra_head %}
+{% block content %}
+     
+<div class="container" style="margin-top: 10%;">
+
+<h5 class="card-title">Doctor Registration Form</h5> 
+  <form method="post" action="" style="padding-left: 300px; padding-right: 300px; padding-top:30px;">
+    {% csrf_token %}
+
+    {{ form.username.label }}
+    {{ form.username }}
+    {{ form.email.label }}
+    {{ form.email }}
+    {{ form.password1.label }}
+    {{ form.password1 }}
+    {{ form.password2.label }}
+    {{ form.password2 }}
+    <br>
+    <br>
+    
+
+  <input type="submit" value="Submit" class="btn btn-primary">
+  </form>
+</div>
+
+          
+{% endblock content %}
+
+{% block extra_body %}
+{% endblock extra_body %}
+
+{% block extra_scripts %}
+{% endblock extra_scripts %}
+
